@@ -28,3 +28,14 @@ Route::get('/payment/success', function () {
 Route::get('/payment/cancel', function () {
     return redirect()->route('payment.index')->with('cancel', 'Payment cancelled');
 })->name('payment.cancel');
+
+Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription.index');
+Route::get('/subscription/process', [SubscriptionController::class, 'subscriptionProcess'])->name('subscription.process');
+
+Route::get('/subscription/success', function () {
+    return redirect()->route('subscription.index')->with('success', 'Subscription successed');
+})->name('subscription.success');
+
+Route::get('/subscription/cancel', function () {
+    return redirect()->route('subscription.index')->with('cancel', 'Subscription cancelled');
+})->name('subscription.cancel');
