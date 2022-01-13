@@ -15,7 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index');
 });
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
+Route::get('/payment/process', [PaymentController::class, 'paymentProcess'])->name('payment.process');
+
+Route::get('/payment/success', function () {
+    return redirect()->route('payment.index')->with('success', 'Payment successed');
+})->name('payment.success');
+
+Route::get('/payment/cancel', function () {
+    return redirect()->route('payment.index')->with('cancel', 'Payment cancelled');
+})->name('payment.cancel');
