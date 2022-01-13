@@ -14,3 +14,4 @@ PAYPAL_LIVE_CLIENT_SECRET=
 ```
 ## Depedencies
 1. ` "srmklive/paypal": "~3.0"`
+2. `"laravel/framework": "^8.75"`
